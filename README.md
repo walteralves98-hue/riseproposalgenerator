@@ -25,3 +25,6 @@ You can also test locally with `python -m http.server 8000` from the project fol
 
 ## Upload NEMP from any country
 Open Activation setup and upload PDF (text-based), DOCX, or XLSX. The browser extracts text, offers an editable country/intervention review, and links the approved extraction to the activation. No country list restriction. Source extract and review metadata are included in generated ZIP. Scanned PDFs require prior OCR. This is a human-reviewed source import, not automatic verified data extraction; targets and budget remain user inputs.
+
+## Library loading troubleshooting
+JSZip is now bundled locally. DOCX, ExcelJS, PDF.js and Mammoth are loaded with fallback CDNs (jsDelivr then unpkg). If both CDNs are blocked, package generation still cannot run. For fully offline/restricted-network operation, vendor the remaining JavaScript distributions under vendor/ and update index.html to use those local paths. Deploy the entire folder, including vendor/.
